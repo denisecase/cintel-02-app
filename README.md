@@ -4,68 +4,102 @@
 - Repository: [cintel-02-app](https://github.com/denisecase/cintel-02-app)
 - Author: [Denise Case](https://github.com/denisecase)
 
-In this module, we add another important tool: Python. 
-If you are new to Python, don't worry, it's relatively easy to learn and very powerful.
+Purpose: Create an interactive analytics dashboard using Shiny for Python.
 
-🚀 Rocket Tips are for learners who want to go beyond the basics. 
-They are not required but can improve workflow, increase productivity, and make things more enjoyable.
+## Before
 
------
+1. Join GitHub
+2. Install Git
+3. Configure Git with user.name and user.email
+4. Install current Python. Important: Add Python to PATH during installation
+5. Install VS Code Editor
+6. Install VS Code Extension: [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+7. Install VS Code Extension: [Shiny](https://marketplace.visualstudio.com/items?itemName=posit.shiny-python)
 
-## Prerequisites
+Add the following extension now - or just add the json file later and VS Code will prompt you to install.
 
+1. Install VS Code Extension: [Pyright](https://marketplace.visualstudio.com/items?itemName=ms-pyright.pyright)
 
-1. Sign up for a free account on shinyapps.io. 
-You can sign in via GitHub for convenience.
+## Shiny Hosting
 
-2 Copy this starter repository into your own GitHub account by clicking the 'Fork' button at the top of this page. 
+1. Sign up for a free account on shinyapps.io. You can sign in via GitHub for convenience.
 
-3. Install Python 3 from the [official Python website](https://www.python.org/). Add Python to your PATH during installation.
+## Browser: Start a new GitHub Project with Default Files
 
------
+1. Open browser and log in to GitHub
+2. Create a new repo (e.g. cintel-02-app) with Default **README.md** and **.gitignore** (for Python).
 
-## First: Modify Your README.md
+## Local Machine: Clone repo to your Documents folder
 
-You have a copy of this repository in your own GitHub account.
-The README.md file is the first thing people see when they visit your repository.
-Customize your README.md file to include your name and links to your GitHub account.
+1. Open VS Code.
+2. Clone GitHub repo into Documents folder.
 
-### Step 1. Get the Code to your Machine
-    
-1. Open VS Code and from the menu, select **View** / **Command Palette**.
-1. Type "Git: Clone" in the command palette and select it.
-1. Enter the URL (web address) of your forked GitHub repository (make sure it contains your GitHub username - not denisecase).
-1. Choose a directory on your machine (e.g., Documents folder) to store the project.
-1. If prompted, sign in to GitHub from VS Code.
+## Local Machine: Set Up Project Virtual Environment
 
-### Step 2. Edit README.md in VS Code
+Open your project folder in VS Code. Open a VS Code terminal (PowerShell or Bash or zsh) using Terminal / New Terminal.
 
-With your repository folder open in VS Code:
+1. Add file: pyrightconfig.json (see example in this repo).
+2. Upgrade pip and install wheel.
+3. Create local project virtual environment (just once at the beginning)
+4. Activate the local project virtual environment (whenever you open a new terminal).
+5. Install packages into active environment (once at the start and whenever you add new packages).
+6. Freeze to requirements.txt (after adding or upgrading packages - see example in this repo).
+7. Document your workflow and commands in your README.md.
 
-1. Click on this README.md file for editing.
-1. Update the README.md file by changing your name in the author link above.
-1. Update the links in the README.md file to your username instead of denisecase.
+Example Terminal Commands for Windows - record your process in your README.md:
 
-### Step 3. Save Your Changes to GitHub
+```shell
+py -m pip install --upgrade pip wheel
+py -m venv .venv
+.\.venv\Scripts\Activate.ps1
+py -m pip install --upgrade -r requirements.txt
+```
 
-1. After making changes, send them back up to GitHub.
-1. In VS Code, find the "Source Control" icon and click it.
-1. Important: Enter a brief commit message describing your changes.
-1. Change the "Commit" button dropdown to "Commit and Push" to send your changes back to GitHub.
+Example Terminal Commands for Mac/Linux - record your process in your README.nd:
 
-Excellent work!  Take a break and celebrate your progress. 
-There's a lot of useful skills involved in this process.
+```bash
+python3 -m pip install --upgrade pip wheel
+python3 -m venv .venv
+source .venv/bin/activate
+python3 -m pip install --upgrade -r requirements.txt
+```
 
+## Create A Basic Shiny Express App
 
------
+1. In VS Code with your project folder open, create a new file app.py in the root project folder.
+2. See the example in this repo.
 
-## Second: Get Started with Shiny For Python
+## Run the Shiny App
 
-When you're ready, continue on to the next section to 
-set up your local Python environment and get started with Shiny for Python.
+In the terminal window, run the app with the following command.
+Note that the terminal will be busy running the app.
+If you need to run any additional terminal commands, you'll have to open a new terminal window.
 
-See [SHINY.md](SHINY.md). 
+Choose one of the following commands.
+The first command will not open a browser window.
+The second command will open a browser window and continuously refresh based on changes to the app.py file.
 
-With Shiny for Python, we can create interactive apps using **Python**.
+```shell
+shiny run app.py
+shiny run --reload --launch-browser ./app.py
+```
 
-![Interactive Web App Written in Python](./images/InteractiveApp.PNG)
+You should see the following output:
+
+```shell
+INFO:     Started server process [8112]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+```
+
+## Open the Shiny App in Your Browser
+
+Open your browser and go to [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+## References
+
+- [Shiny Express](https://shiny.posit.co/blog/posts/shiny-express/)
+- [Shiny for Python - main](https://shiny.posit.co/py/)
+- [Verify all installed packages with Python Package Index](https://pypi.org/)
+- [Font Awesome free icons](https://fontawesome.com/search?m=free&o=r)
